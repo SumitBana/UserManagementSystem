@@ -1,4 +1,5 @@
 package usermanagepack;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Insets;
@@ -11,6 +12,7 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import javax.swing.JRootPane;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
@@ -80,6 +82,26 @@ public class LoginFrame extends JFrame
 	    public void actionPerformed(ActionEvent e)
 	    {
 		Object ob = e.getSource();
+                if(ob == btnSignup)
+                {
+                    SignUpFrame signFrame = new SignUpFrame();
+                    signFrame.setTitle("SIGN UP PANEL...");
+                    signFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    signFrame.setResizable(false);
+                    signFrame.setModal(true);
+                    signFrame.setSize(500, 300);
+                    signFrame.setLocationRelativeTo(null);
+                    signFrame.getContentPane().setBackground(new Color(250,250,200));
+                    signFrame.setLayout(new BorderLayout());
+                    signFrame.setUndecorated(true);
+                    signFrame.getRootPane().setWindowDecorationStyle(JRootPane.COLOR_CHOOSER_DIALOG);
+                    signFrame.setVisible(true);
+                }
+                else if(ob == btnExit)
+                {
+                    System.exit(0);
+                }
+                
 	    }
 	});
         add(temp);
